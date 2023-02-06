@@ -1,0 +1,15 @@
+[package]
+name = "echo"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ntex = { version = "0.6.3", features = ["tokio"] }
+
+[[bin]]
+name = "server"
+path = "src/server.rs"
+
+[[bin]]
+name = "client"
+path = "src/client.rs"
