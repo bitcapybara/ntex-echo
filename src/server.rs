@@ -3,7 +3,7 @@ use std::io;
 use ntex::{
     codec::BytesCodec,
     fn_service,
-    io::{Filter, Framed, Io},
+    io::{Framed, Io},
     server::Server,
     util::Either,
 };
@@ -17,7 +17,7 @@ async fn main() -> io::Result<()> {
         .await
 }
 
-async fn echo<F: Filter>(s: Io<F>) -> io::Result<()> {
+async fn echo(s: Io) -> io::Result<()> {
     let framd = Framed::new(s, BytesCodec);
     loop {
         match framd.recv().await.to()? {
